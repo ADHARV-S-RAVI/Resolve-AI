@@ -1,151 +1,285 @@
-# Welcome to your Enter project
+# ResolveAI
 
-[![Built with enter.pro](https://img.shields.io/badge/Build%20with-Enter.pro-FC5776?style=for-the-badge&labelColor=1F1F1F)](https://enter.pro)
+### AI-Powered Customer Support & Complaint Resolution Platform
 
-*Automatically synced with your [enter.pro](https://enter.pro) workspace* 
+ResolveAI is an AI-powered customer support platform designed to take customer complaints from the **first conversation to final resolution**.
 
----
-
-## Overview
-
-This repository is automatically linked to your app on [enter.pro](https://enter.pro).  
-Every change you make in Enter will be reflected here — and any updates you push to this repo will sync back seamlessly.  
-
-Enter.pro helps you **build, edit, and deploy full-stack web apps by prompting**.  
-Just describe what you want — Enter turns ideas into production-ready code.
+Unlike traditional support systems that mainly focus on answering customer questions, ResolveAI focuses on **understanding, investigating, reasoning, resolving, and intelligently escalating** customer issues.
 
 ---
 
-## Project URLs
+## 📸 Screenshots
 
-**Live app:** https://<project-id>-latest.preview.enter.pro  
-**Edit & build in Enter:** https://enter.pro/project/<project-id>
+### Landing Page
+
+<!-- Add your landing page screenshot here -->
+
+<img width="1901" height="907" alt="image" src="https://github.com/user-attachments/assets/66bef15c-5327-454f-91af-1dbcfcf9cdb8" />
 
 
----
+### Customer Support Interface
 
-## Continue building
+<!-- Add your customer support screenshot here -->
 
-Keep developing your app directly in [Enter.pro](https://enter.pro/project/<project-id>).  
-Prompt new features, refine the UI, or connect integrations — all changes are versioned and synced automatically to GitHub.
+![Customer Support](./<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/a3de15d2-3634-497b-a726-097a6154e2bf" />
+customer-support.png)
 
----
+### AI Investigation Dashboard
 
-## Local development
+<!-- Add your AI investigation screenshot here -->
 
-Prefer to work locally? You can clone this repo and start developing right away:
+![AI Investigation](./screenshots/ai-investigation.png)
 
-```bash
-# Step 1: Clone your project repository
-git clone <YOUR_GIT_URL>
+### Human Escalation
 
-# Step 2: Navigate into the project folder
-cd <YOUR_PROJECT_NAME>
+<!-- Add your escalation page screenshot here -->
 
-# Step 3: Install all dependencies
-pnpm install
+![Human Escalation](./screenshots/escalation.png)
 
-# Step 4: Start the local development server
-pnpm dev
-```
-
-Push your commits — Enter.pro will automatically detect and sync your latest changes.
+> **Note:** Place your screenshots inside the `screenshots/` folder using the filenames shown above.
 
 ---
 
-## i18n
+# 🎯 Problem
 
-This template ships a minimal browser-side i18n baseline built on:
+Modern customer support systems often focus on answering customer queries quickly.
 
-- `i18next`
-- `react-i18next`
-- `i18next-http-backend`
-- `i18next-browser-languagedetector`
+However, many complaints require more than a simple response.
 
-### Source-of-truth files
+For example:
 
-The template only owns three pieces of i18n data:
+> "My payment was deducted twice, but my order was cancelled and I haven't received my refund."
 
-- `i18n.config.json` — language manifest (`fallbackLng`, `languages[].{code,label,detect,dir}`)
-- `public/locales/{code}.json` — flat dotted-key translations, one file per language
-- `src/i18n/config.ts` + `src/i18n/util.ts` — runtime entry and pure helpers
-- `src/components/language-switcher.tsx` — neutral-themed UI sample
+Resolving this issue may require checking:
 
-### Runtime behavior
+- Customer information
+- Order history
+- Payment transactions
+- Refund records
+- Previous support tickets
+- Company policies
+- Cancellation and refund eligibility
 
-- reads the manifest from `i18n.config.json`
-- loads translations from `public/locales/{code}.json` via `i18next-http-backend`
-- detects language from cookie, browser, then html tag; caches in the `i18next` cookie
-- normalizes unsupported languages to `fallbackLng` (no invalid values stored in cookies)
-- syncs `<html lang>` and `<html dir>` on init and on `languageChanged`
-- treats keys as flat strings: both `keySeparator` and `nsSeparator` are disabled
+When this information is spread across different systems, support agents often have to manually investigate the problem.
 
-### Using translations in components
+This leads to:
 
-Import directly from `react-i18next`. No project-specific hook or cast is needed.
-
-```tsx
-import { useTranslation } from "react-i18next";
-
-const Title = () => {
-  const { t } = useTranslation();
-  return <h1>{t("home.hero.title")}</h1>;
-};
-```
-
-For language switching, the `i18n` instance also comes from `useTranslation()`:
-
-```tsx
-const { i18n } = useTranslation();
-void i18n.changeLanguage("zh-CN");
-```
-
-`languageOptions`, `normalizeLanguage`, `getLanguageDirection`, and `fallbackLng` can be imported from `@/i18n/config` (re-exports from `util.ts`).
-
-### Adding a language
-
-1. Add an entry under `languages` in `i18n.config.json` with `code`, `label`, `detect`, `dir`.
-2. Create `public/locales/{code}.json` with the same key set as `public/locales/{fallbackLng}.json`.
-3. Translate values, preserving any `{{variables}}` and `<tag>...</tag>` structures.
-
-### Adding a translation key
-
-1. Add the key to `public/locales/{fallbackLng}.json` first.
-2. Add the same key to every other locale file with its translated value.
-3. Use it via `t("group.key")` in components.
-
-### Backend handoff (temporary in-repo files)
-
-The following files are **temporary copies kept in the repo only until backend integration is complete**. The backend will eventually own validation, statistics, completion-rate dashboards, scan-for-new-strings, and auto-translate. After that integration lands, these files (and the corresponding `package.json` scripts) will be removed:
-
-- `scripts/check-i18n.mjs`, `scripts/scan-i18n.mjs`, `scripts/i18n-utils.mjs`, `scripts/i18n-source-usage.mjs`
-- `i18n.scan.json`
-- `reports/i18n/`
-- `docs/i18n-agent-spec.md`, `docs/i18n-contract.md`
-- `package.json` scripts: `i18n:check`, `i18n:scan`, and the `check` aggregate
-
-Until removed, you can still run `pnpm i18n:check` and `pnpm i18n:scan` locally; the canonical computation is the backend's responsibility.
+- Longer resolution times
+- Repeated explanations from customers
+- Loss of conversation context
+- Inconsistent resolutions
+- Increased workload for support teams
 
 ---
 
-## Tech stack
+# 💡 Our Solution
 
-This project uses:
+**ResolveAI** acts as an intelligent investigation layer between the customer and the support team.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+It can:
+
+1. Understand the customer's complaint
+2. Identify intent, urgency and sentiment
+3. Ask relevant follow-up questions
+4. Create and manage support tickets
+5. Investigate connected business data
+6. Identify the root cause
+7. Collect supporting evidence
+8. Recommend a resolution based on evidence and policy
+9. Resolve suitable cases automatically
+10. Escalate uncertain cases to human agents with complete context
+
+### In simple terms:
+
+> **ResolveAI doesn't just answer the complaint. It investigates why the problem happened and helps drive it toward resolution.**
 
 ---
 
-## Deployment
+# ⭐ Key Features
 
-To deploy, open your Enter.pro project and click "Publish"
+## 1. AI Complaint Understanding
 
-Your app will automatically build and go live at your production URL.
+Understands customer messages and identifies:
+
+- Intent
+- Issue type
+- Urgency
+- Sentiment
+- Required information
 
 ---
 
-✨ Keep prompting, keep building — Enter.pro handles the rest.
+## 2. AI-Powered Investigation
+
+ResolveAI can investigate multiple sources of customer information, including:
+
+- Orders
+- Payments
+- Refunds
+- Customer history
+- Previous tickets
+- Support policies
+
+This allows the AI to understand what actually happened instead of relying only on what the customer says.
+
+---
+
+## 3. Root Cause Detection
+
+The system attempts to identify the underlying reason behind a complaint.
+
+### Example
+
+**Customer:**
+
+> "I was charged twice for an order that was cancelled."
+
+ResolveAI can investigate the order and payment records to determine whether:
+
+- Multiple transactions were captured
+- The order was cancelled
+- A refund was created
+- The customer is eligible for a refund
+- Further human investigation is required
+
+---
+
+## 4. Evidence-Based Resolution
+
+AI recommendations are supported by the information discovered during investigation.
+
+The system can present:
+
+- Investigation findings
+- Supporting evidence
+- Root cause
+- Confidence level
+- Recommended next action
+
+This makes the AI's reasoning more transparent to support agents.
+
+---
+
+## 5. Intelligent Human Escalation
+
+Not every issue should be handled automatically.
+
+When the system lacks sufficient evidence or confidence, ResolveAI escalates the case to a human agent.
+
+The agent receives the complete context:
+
+- Customer conversation
+- Customer information
+- Investigation findings
+- Evidence
+- Root cause
+- Previous actions
+- Recommended next step
+
+This avoids forcing the customer to explain the same problem again.
+
+---
+
+## 6. Chat + Voice Support
+
+Customers can interact with ResolveAI through:
+
+- Text conversations
+- AI-powered voice conversations
+
+Voice interactions can be converted into useful support context for further investigation and agent handling.
+
+---
+
+## 7. Customer 360
+
+Support agents can view important customer information in one place, including:
+
+- Customer details
+- Orders
+- Payment information
+- Previous support interactions
+- Current tickets
+- Complaint history
+
+---
+
+## 8. Support Analytics
+
+The platform provides support insights such as:
+
+- Ticket volume
+- Resolution status
+- Escalations
+- AI confidence
+- Support activity
+- Complaint trends
+
+---
+
+# 🚀 What Makes ResolveAI Different?
+
+AI customer-support agents already exist.
+
+ResolveAI focuses on a different layer of the support workflow:
+
+### Conversation → Investigation → Evidence → Resolution / Escalation
+
+Instead of simply generating an answer, ResolveAI focuses on:
+
+**Understanding the complaint → Investigating business data → Finding the root cause → Supporting the decision with evidence → Resolving or escalating**
+
+### Our Core Differentiator
+
+> **The Investigation Layer**
+
+This investigation layer connects the customer's conversation with the company's operational data and turns that information into an actionable support decision.
+
+---
+
+# 🔄 How It Works
+
+```text
+Customer
+   │
+   ▼
+Chat / Voice
+   │
+   ▼
+Understand Complaint
+   │
+   ▼
+Identify Intent + Urgency + Sentiment
+   │
+   ▼
+Ask Follow-up Questions
+   │
+   ▼
+Create Support Ticket
+   │
+   ▼
+Investigate Business Data
+   │
+   ├── Orders
+   ├── Payments
+   ├── Refunds
+   ├── Customer History
+   └── Previous Tickets
+   │
+   ▼
+Find Root Cause
+   │
+   ▼
+Evaluate Evidence + Policy
+   │
+   ├───────────────┐
+   ▼               ▼
+Resolve        Escalate
+   │               │
+   │               ▼
+   │        Human Agent
+   │               │
+   │        Complete Context
+   │
+   ▼
+Case Resolution
