@@ -21,22 +21,23 @@ Unlike traditional support systems that mainly focus on answering customer quest
 
 <!-- Add your customer support screenshot here -->
 
-![Customer Support](./<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/a3de15d2-3634-497b-a726-097a6154e2bf" />
+(./<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/a3de15d2-3634-497b-a726-097a6154e2bf" />
 customer-support.png)
 
-### AI Investigation Dashboard
+### Calls and Transcripts
 
 <!-- Add your AI investigation screenshot here -->
 
-![AI Investigation](./screenshots/ai-investigation.png)
+<img width="1901" height="905" alt="image" src="https://github.com/user-attachments/assets/500691fc-3c82-4c26-862e-a8e8474cc338" />
+
 
 ### Human Escalation
 
 <!-- Add your escalation page screenshot here -->
 
-![Human Escalation](./screenshots/escalation.png)
+<img width="1901" height="908" alt="image" src="https://github.com/user-attachments/assets/53e0bb32-0a50-4bfa-9572-5d9f370223ba" />
 
-> **Note:** Place your screenshots inside the `screenshots/` folder using the filenames shown above.
+
 
 ---
 
