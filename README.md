@@ -21,8 +21,7 @@ Unlike traditional support systems that mainly focus on answering customer quest
 
 <!-- Add your customer support screenshot here -->
 
-(./<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/a3de15d2-3634-497b-a726-097a6154e2bf" />
-customer-support.png)
+<img width="1897" height="907" alt="image" src="https://github.com/user-attachments/assets/a3de15d2-3634-497b-a726-097a6154e2bf" />
 
 ### Calls and Transcripts
 
